@@ -22,12 +22,12 @@ namespace WebXRMPages
         public bool Validate_FollowupOnlys()
         {            
             Driver.SwitchToFrameById("_framepage");
-            List<IWebElement> calpopup = Driver.GetWebElementsByXPath("//a[.='Open the calendar popup.']") ;
-            IWebElement[] calpopup2 = calpopup.ToArray();           
-            calpopup2[1].ClickAndWait();          
+            List<IWebElement> calenderpopup1 = Driver.GetWebElementsByXPath("//a[.='Open the calendar popup.']") ;
+            IWebElement[] calenderpopup2 = calenderpopup1.ToArray();
+            calenderpopup2[1].ClickAndWait();          
             Driver.GetWebElementByXPath($"//a[.='{DateTimePicker.currentDate}']").ClickAndWait();
-            calpopup2[1].ClickAndWait();
-            calpopup2[0].ClickAndWait();
+            calenderpopup2[1].ClickAndWait();
+            calenderpopup2[0].ClickAndWait();
             Driver.GetWebElementByXPath($"//a[.='{DateTimePicker.currentDate}']").ClickAndWait();           
             Driver.SwitchTo().DefaultContent();
             Driver.SwitchToFrameById("_framepage");

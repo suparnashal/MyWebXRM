@@ -9,7 +9,7 @@ namespace MobileAutomation
         [SetUp]
         public void Setup()
         {
-            AndroidDriver<AppiumWebElement> driver = new AndroidDriver();
+            //AndroidDriver<AppiumWebElement> driver = new AndroidDriver();
         }
 
         [Test]
