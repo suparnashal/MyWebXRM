@@ -16,10 +16,8 @@ namespace Framework.Extensions
 
         public static IWebElement GetWebElementByXPath(this IWebDriver driver, string locator)
         {
-            //need System.Collections.ObjectModel included to access this class
             ReadOnlyCollection<IWebElement> elements = null;
             int pollinginterval = 350, timeout = 3000, elapsedtime=0;
-
             while (elapsedtime < timeout)
             {
                 try
