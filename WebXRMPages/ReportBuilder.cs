@@ -30,28 +30,15 @@ namespace WebXRMPages
             GoToReportBuilder();
             Driver.SwitchToFrameById("_framepage");
             lnkCustom.ClickAndWait();          
-            lnSSTestReports.ClickAndWait();
-
-            //scroll up            
-            scrollbar.MoveScrollBar(500);        
-
-            btnTestReport.ClickAndWait();
-            //click on Run Report            
-            btnRunReport.ClickAndWait();
-
-            //popup with open
-            //click on Export to excel button
-            //driver.SwitchToFrameById("_framepage");
-            //delete all the RadExportFiles before downloading new ones
+            lnSSTestReports.ClickAndWait();                    
+            scrollbar.MoveScrollBar(500); 
+            btnTestReport.ClickAndWait();                 
+            btnRunReport.ClickAndWait();            
             GlobalHelpers gs = new GlobalHelpers();
             gs.DeleteFilesFromDirectory("RadGridExport*");
-
             Driver.SwitchTo().Frame("RadWindowRunReportFolder");
-
             btnExportToExcel.ClickAndWait();
-            //download of file will come up
-            //check the timestamp and name of the latest file downloaded into the download folder.
-            //GlobalHelpers gs = new GlobalHelpers();
+           
             return gs.DownloadFilePresent("RadGridExport*");
 
         }

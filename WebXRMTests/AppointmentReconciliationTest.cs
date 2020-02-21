@@ -32,25 +32,17 @@ namespace WebXRMTests
         {
 
             //just tyring to get the Team attribute
-            Type class_type = typeof(AppointmentReconciliationTest);
-            MethodInfo minfo = class_type.GetMethod("AppointmentReconValidateFilterbySP");
-            TeamAttribute team_attribute = (TeamAttribute)Attribute.GetCustomAttribute(minfo, typeof(TeamAttribute));
-            string teamname = team_attribute.teamname;
+            //Type class_type = typeof(AppointmentReconciliationTest);
+            //MethodInfo minfo = class_type.GetMethod("AppointmentReconValidateFilterbySP");
+            //TeamAttribute team_attribute = (TeamAttribute)Attribute.GetCustomAttribute(minfo, typeof(TeamAttribute));
+            //string teamname = team_attribute.teamname;
 
             //set number of appnt for Adrain
             //i hv hardcoded this for now, in real test we will create this test data   
             Assert.AreEqual(1, new AppointmentReconciliation(driver).GetNumOfAppntsForSP("Adrain Villegas"));
             TestContext.WriteLine("Appnt recon validate filterby SP test case done ");
 
-        }
-
-        [Test]
-        public void ValidateMarkShowedLinkForAppoin()
-        {
-            //we know what customer to use since we hv initialized it in Onetimesetup
-            //AppointmentReconciliation AppRecon = new AppointmentReconciliation(driver);
-            //AppRecon.AddPhoneEvent("2736201");
-        }
+        }              
 
         [TearDown]
         public void Cleanup()

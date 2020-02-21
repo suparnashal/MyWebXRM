@@ -25,10 +25,8 @@ namespace WebXRM.WebXRMPages
 
         public void OpenUrlAndLogin()
         {
-
             Driver.Navigate().GoToUrl("https://www.car-research.com/WebXRM/");
-            Config configinfo = new Config();      
-
+            Config configinfo = new Config();  
             txtUsername.SendKeys(configinfo.username);            
             txtPassword.SendKeys(configinfo.password);            
             txtDealerID.SendKeys(configinfo.dealerid);            

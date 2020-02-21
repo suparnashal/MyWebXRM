@@ -46,8 +46,7 @@ namespace WebXRMPages
             SearchForCustomerByID("2712272");
             NewShowroomVisit();
             RefreshCustomerEditView();
-            FilterShowroomEvent();
-            //get all span elements with contact date and check if they hv given date
+            FilterShowroomEvent();          
             int numOfShVisitsToday = Driver.GetWebElementsByXPath("//span[@title='Contact Date'][contains(text(),'12/11/2019')]").Count;             
         }
 
@@ -65,18 +64,13 @@ namespace WebXRMPages
             Driver.GetWebElementByXPath("//a[.='Phone Call']").ClickAndWait();
             Driver.SwitchToNewTab();
             Driver.GetWebElementByXPath("//i[contains(@title,'Choose Vehicle')]").ClickAndWait();
-            Driver.SwitchTo().Frame("RadWindowChooseVehicle");
-            // look into wait
-            Driver.GetWebElementByXPath("//span[.=' Search']").ClickAndWait();
-
-            ////input[contains(@id,"_rtbStockNum")][2]
-
-            Driver.GetWebElementByXPath("//tr[contains(@id,'rgvVehicles_ctl00__0')]/td[5]").MouseDoubleClick(); //.. this is correct one
+            Driver.SwitchTo().Frame("RadWindowChooseVehicle");        
+            Driver.GetWebElementByXPath("//span[.=' Search']").ClickAndWait(); 
+            Driver.GetWebElementByXPath("//tr[contains(@id,'rgvVehicles_ctl00__0')]/td[5]").MouseDoubleClick(); 
             Driver.SwitchTo().DefaultContent();
             String attributes = Driver.GetWebElementByXPath("//input[contains(@id,'_rtbStockNum')][2]").GetAttribute("value");
             String stock = System.Text.RegularExpressions.Regex.Split(attributes, "{\"|\":|,\"|\"")[17];
-            return stock;
-            //String[] strings = System.Text.RegularExpressions.Regex.Split("\"",attributes) ;
+            return stock;     
 
         }
     }

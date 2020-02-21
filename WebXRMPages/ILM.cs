@@ -20,29 +20,18 @@ namespace WebXRMPages
         }
 
         public bool Validate_FollowupOnlys()
-        {       
-
-            //get 2nd change date
+        {            
             Driver.SwitchToFrameById("_framepage");
             List<IWebElement> calpopup = Driver.GetWebElementsByXPath("//a[.='Open the calendar popup.']") ;
             IWebElement[] calpopup2 = calpopup.ToArray();           
-            calpopup2[1].ClickAndWait();
-            //Driver.SwitchToFrameById("_framepage");
+            calpopup2[1].ClickAndWait();          
             Driver.GetWebElementByXPath($"//a[.='{DateTimePicker.currentDate}']").ClickAndWait();
             calpopup2[1].ClickAndWait();
-
             calpopup2[0].ClickAndWait();
-            Driver.GetWebElementByXPath($"//a[.='{DateTimePicker.currentDate}']").ClickAndWait();
-            //calpopup2[0].ClickAndWait();
-            Driver.SwitchTo().DefaultContent();              
-
-          
-
+            Driver.GetWebElementByXPath($"//a[.='{DateTimePicker.currentDate}']").ClickAndWait();           
+            Driver.SwitchTo().DefaultContent();
             Driver.SwitchToFrameById("_framepage");
-            ReadOnlyCollection<IWebElement> custNames = Driver.FindElements(By.XPath("//a[contains(@id,'lnkCustomer')]"));
-            //List<String> custNamesString =
-            //System.Drawing.Size[] sizesArray = custNames.Select(t => t.Size).ToArray(); //practise using Select to return a array of size objects
-
+            ReadOnlyCollection<IWebElement> custNames = Driver.FindElements(By.XPath("//a[contains(@id,'lnkCustomer')]"));      
             List<String> NamesOnly = custNames.Select(t => t.Text).ToList();
             bool status = NamesOnly.All(s =>
             {

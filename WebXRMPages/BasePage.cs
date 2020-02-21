@@ -40,10 +40,7 @@ namespace WebXRM.WebXRMPages
             searchbox.SendKeys(customerid);
             Driver.GetWebElementByXPath("//a[.=' Search']").ClickAndWait();
             Driver.GetWebElementByXPath($"//a[.='{customerid}']");
-            Driver.GetWebElementByXPath($"//a[.='{customerid}']").ClickAndWait();
-
-
-            //click on the customer found
+            Driver.GetWebElementByXPath($"//a[.='{customerid}']").ClickAndWait();            
         }
 
         public void GotoAppntReconPage()
@@ -73,8 +70,7 @@ namespace WebXRM.WebXRMPages
             Driver.GetWebElementByXPath("//a[.='ILM']").ClickAndWait();
             Driver.SwitchToFrameById("_framepage");
             Driver.GetWebElementByXPath("//span[.='Follow-Up Only']").ClickAndWait();
-            Driver.SwitchTo().DefaultContent();          
-
+            Driver.SwitchTo().DefaultContent();
         }
 
         public void GotoSearchPage()

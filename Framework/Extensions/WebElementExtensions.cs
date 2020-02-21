@@ -14,8 +14,7 @@ namespace Framework.Extensions
     public static class WebElementExtensions
     {
         public static void ClickAndWait(this IWebElement element, int timeout = 1000)
-        {
-            //below IWraps statement is very important.This is the way you get a driver from an IWebElement passed to a method
+        {            
             IWebDriver driver = ((IWrapsDriver)element).WrappedDriver;
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromMilliseconds(30));
             element.Click();
@@ -24,8 +23,7 @@ namespace Framework.Extensions
 
         public static void MoveScrollBar(this IWebElement element,int range)
         {
-            IWebDriver driver = ((IWrapsDriver)element).WrappedDriver;
-            //scroll down            
+            IWebDriver driver = ((IWrapsDriver)element).WrappedDriver;                      
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             js.ExecuteScript($"arguments[0].scrollBy(0,{range})", element);
         }

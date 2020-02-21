@@ -30,8 +30,7 @@ namespace WebXRMTests
         [Team("xrm integratopm")]
         [LoopProject(Project.XRMCore)]
         public void ValidateExporttoExcel()
-        {
-            //click on report builder menu item            
+        {                    
             Assert.IsTrue(new ReportBuilder(driver).ValidateReportDownload());           
         }
 

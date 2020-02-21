@@ -12,9 +12,7 @@ namespace Framework.Helpers
 
         public bool DownloadFilePresent(string filename)
         {
-          string downloadpath = @"C:\Users\sshaligram\Downloads" ;
-            
-            //Directory.GetFiles(downloadpath, "RadGridExport");
+            string downloadpath = @"C:\Users\sshaligram\Downloads" ;                       
 
             IEnumerable<string> filenames = Directory.EnumerateFiles(downloadpath, filename);
 

@@ -30,17 +30,10 @@ namespace WebXRMTests
         [Team("xrm core")]
         [LoopProject(Project.XRMCore)]
         public void Validate_ILM_FollowupOnly()
-        {
-            /*Go to ILM page
-             * Click on Followup only
-             * change date range to today's date to today's date
-             * check if all customers hv that date in them
-             * if yes then works ok else error
-             * */
+        {        
             IlmPage.GoToILMFollowUpOnly();
-
-           Assert.IsTrue(IlmPage.Validate_FollowupOnlys());
-           TestContext.WriteLine("ILM Followup test case done ");
+            Assert.IsTrue(IlmPage.Validate_FollowupOnlys());
+            TestContext.WriteLine("ILM Followup test case done ");
         }
 
         [TearDown]
