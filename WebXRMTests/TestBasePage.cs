@@ -40,16 +40,16 @@ namespace WebXRMTests
     }
 
    [TestFixture]
-    class TestBasePage
+    public class TestBasePage
     {
-
+        protected IWebDriver driver;
         [SetUp]
-        public void Setup()
+        public virtual void Setup()
         {           
         }
-
+     
         [TearDown]
-        public void Teardown()
+        public virtual void Teardown()
         {
 
         }

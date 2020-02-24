@@ -13,22 +13,28 @@ using Framework.Enums;
 namespace WebXRMTests
 {
     [TestFixture]
-    public class AppointmentReconciliationTest
+    public class AppointmentReconciliationTest : TestBasePage
     {
-        private IWebDriver driver;   
+        private AppointmentReconciliation apptRecon;
 
-        
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             driver = BrowserFactory.GetBrowser();
             new LoginPage(driver).OpenUrlAndLogin();
         }        
 
+        [SetUp]
+        public override void Setup()
+        {
+            base.Setup();
+            apptRecon = new AppointmentReconciliation(driver);
+        }
+
         [Test]
         [Team("xrm core")]
         [LoopProject(Project.XRMCore)]
-        public void AppointmentReconValidateFilterbySP()
+        public void C001_AppointmentReconValidateFilterbySP()
         {
 
             //just tyring to get the Team attribute
@@ -39,12 +45,12 @@ namespace WebXRMTests
 
             //set number of appnt for Adrain
             //i hv hardcoded this for now, in real test we will create this test data   
-            Assert.AreEqual(1, new AppointmentReconciliation(driver).GetNumOfAppntsForSP("Adrain Villegas"));
+            Assert.AreEqual(1, apptRecon.GetNumOfAppntsForSP("Adrain Villegas"));
             TestContext.WriteLine("Appnt recon validate filterby SP test case done ");
 
         }              
 
-        [TearDown]
+        [OneTimeTearDown]
         public void Cleanup()
         {
             TestContext.WriteLine("All appnt recon test cases done");
