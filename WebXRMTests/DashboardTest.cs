@@ -17,8 +17,9 @@ namespace WebXRMTests
     class DashboardTest
     {
         private IWebDriver driver; 
-        [SetUp]
-        public void Setup()
+       
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             driver = BrowserFactory.GetBrowser();
             new LoginPage(driver).OpenUrlAndLogin();
@@ -27,9 +28,10 @@ namespace WebXRMTests
         [Test]
         [Team("xrm core")]
         [LoopProject(Project.XRMCore)]
-        public void VerifyCreateDashboard()
+        public void C002_VerifyCreateDashboard()
         {
-            /* login as admin
+            /* These are basic steps to create a Dashboard
+             * login as admin
              * go to dashboard
              * click on +
              * click on next
@@ -42,8 +44,8 @@ namespace WebXRMTests
              
         }
 
-        [TearDown]
-        public void Teardown()
+        [OneTimeTearDown]
+        public void Cleanup()
         {
             driver.Quit();
         }
