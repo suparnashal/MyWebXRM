@@ -20,8 +20,7 @@ namespace WebXRMPages
 
         public void ChangetoEditView()
         {
-            GoToChangeMySettingsPage(); 
-            //need to put a switch frame here
+            GoToChangeMySettingsPage();             
             Driver.SwitchToFrameById("_framepage");
             SelectElement customerView = new SelectElement(ddlDefaultCustomerSlideout);
             customerView.SelectByText("Edit View");

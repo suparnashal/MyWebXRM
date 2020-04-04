@@ -30,11 +30,8 @@ namespace WebXRMTests
             base.Setup();
             apptRecon = new AppointmentReconciliation(driver);
         }
-
-        [Test]
-        [Team("xrm core")]
-        [LoopProject(Project.XRMCore)]
-        public void C001_AppointmentReconValidateFilterbySP()
+       
+        public void SavedTest_AppointmentReconValidateFilterbySP()
         {
 
             //just tyring to get the Team attribute
@@ -48,8 +45,23 @@ namespace WebXRMTests
             Assert.AreEqual(1, apptRecon.GetNumOfAppntsForSP("Adrain Villegas"));
             TestContext.WriteLine("Appnt recon validate filterby SP test case done ");
 
-        }              
+        }
 
+        [Test]
+        [Team("xrm core")]
+        [LoopProject(Project.XRMCore)]
+        public void C001_AppointmentReconValidateFilterbySP()
+        {      
+            //Adding comments for explanation. In prod code there will not be any comments.Codewill be readable.          
+            //1.Arrange
+            //set number of appnt for Adrain
+            //i hv hardcoded this for now, in real test we will create this test data  
+
+            //2.Act and 3.Assert are combined in following step
+            Assert.AreEqual(1, apptRecon.GetNumOfAppntsForSP("Adrain Villegas"));
+            TestContext.WriteLine("Appnt recon validate filterby SP test case done ");
+
+        }
         [OneTimeTearDown]
         public void Cleanup()
         {
