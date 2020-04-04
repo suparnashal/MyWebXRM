@@ -41,7 +41,10 @@ namespace WebXRMTests
              * go to DB dropdown list and see if the dashboard is present there
              * then go and delete the dashboard
              */
-             
+            int[] listofintegers = new int[] {2,4,5,8,10,13,15 };
+         int sum= listofintegers.Where(i => i % 2 == 0).Sum(i => i);
+            sum = sum + 0;
+            
         }
 
         [OneTimeTearDown]
