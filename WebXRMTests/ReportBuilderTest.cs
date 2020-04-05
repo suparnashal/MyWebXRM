@@ -15,26 +15,28 @@ using WebXRM.WebXRMPages;
 namespace WebXRMTests
 {
     [TestFixture]
-    class ReportBuilderTest
+    class ReportBuilderTest : TestBasePage
     {
-        private IWebDriver driver; 
-
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTime()
         {
             driver = BrowserFactory.GetBrowser();
             new LoginPage(driver).OpenUrlAndLogin();
         }
 
-        [Test]
-        [Team("xrm integratopm")]
-        [LoopProject(Project.XRMCore)]
-        public void ValidateExporttoExcel()
+        [SetUp]
+        public override void Setup()
+        {
+            base.Setup();
+        }
+
+        [Test,Team("xrm integratopm"),LoopProject(Project.XRMCore)]
+        public void C004_ValidateExporttoExcel()
         {                    
             Assert.IsTrue(new ReportBuilder(driver).ValidateReportDownload());           
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public void TearDown()
         {
             driver.Quit();

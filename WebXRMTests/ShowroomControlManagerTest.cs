@@ -14,11 +14,9 @@ using Framework.Enums;
 namespace WebXRMTests
 {
     [TestFixture]
-    class ShowroomControlManagerTest
+    class ShowroomControlManagerTest : TestBasePage
     {
-        private IWebDriver driver;
-
-        [OneTimeSetUp ]
+        [OneTimeSetUp]
         public void OneTime()
         {
             driver = BrowserFactory.GetBrowser();
@@ -26,38 +24,32 @@ namespace WebXRMTests
         }
 
         [SetUp]     
-        public void Setup()
+        public override void Setup()
         {
-          
+            base.Setup();
         }
 
-        [Test]
-        [Team("xrm integratopm")]        
-        [LoopProject(Project.XRMCore)]
-        public void ValidateAddShowroomEvent()
-        {
-           
-            new ChangeMySettings(driver).ChangetoEditView(); 
-            new ShowroomControlManager(driver).AddShowroomEvent();           
-            TestContext.WriteLine("Added Showroom event . Ran test case ");   
-
-        }
-
-        [Test]
-        [Author("Suparna")]
-        [Team("xrm integratopm")]
-        [LoopProject(Project.XRMCore)]
-        //we can write following method in another class where we code all phone events but writing test here for simplicity for my test project
-        public void ValidateStockPopuluatedOnPhoneEvent()
+        [Test,Team("xrm integratopm"),LoopProject(Project.XRMCore)]
+        public void C005_ValidateAddShowroomEvent()
         {           
-            //Change settings to edit view
+            new ChangeMySettings(driver).ChangetoEditView(); 
+            Assert.IsTrue(new ShowroomControlManager(driver).AddShowroomEvent());           
+            TestContext.WriteLine("Added Showroom event . Ran test case ");   
+        }
+
+        [Test,Author("Suparna"),Team("xrm integratopm"),LoopProject(Project.XRMCore)]
+        //we can write following method in another class where we code all phone events but writing test here for simplicity for my test project
+        public void C006_ValidateStockPopuluatedOnPhoneEvent()
+        {           
+            //ARRANGE - Change settings to edit view
             new ChangeMySettings(driver).ChangetoEditView();
             //search for customer #2709269
             ShowroomControlManager s = new ShowroomControlManager(driver);           
+            //ACT and ASSERT
             Assert.AreEqual(s.AddPhoneEvent(), "161348");        
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public void Cleanup()
         {
             TestContext.WriteLine("All showroom tests done");

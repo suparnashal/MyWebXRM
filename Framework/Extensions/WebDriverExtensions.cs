@@ -30,7 +30,7 @@ namespace Framework.Extensions
                 }
                 catch (StaleElementReferenceException)
                 {
-
+                    continue;
                 }                
                 Thread.Sleep(pollinginterval);
                 elapsedtime += pollinginterval;
@@ -66,11 +66,6 @@ namespace Framework.Extensions
         {
             List<string> tabs = driver.WindowHandles.ToList();
             driver.SwitchTo().Window(tabs.First());
-        }
-
-       public static void Test(this IWebDriver driver)
-        {
-            //WebDriverWait w = new WebDriverWait()
         }
 
     }

@@ -13,8 +13,7 @@ namespace WebXRM.WebXRMPages
     { 
         
         private IWebElement comboSalesperson => Driver.GetWebElementByXPath("//a[contains(@id,'rcmbEmployee')]");
-        private IWebElement btnSearch => Driver.GetWebElementByXPath("//a[@title='Preview All Customer']");
-        public IWebDriver Driver;
+        private IWebElement btnSearch => Driver.GetWebElementByXPath("//a[@title='Preview All Customer']");        
         public AppointmentReconciliation(IWebDriver driver):base(driver)
         {
             Driver = driver; 
@@ -27,7 +26,7 @@ namespace WebXRM.WebXRMPages
             Driver.GetWebElementByXPath($"//li[@class='col1'][contains(text(),' {salesperson}')]").ClickAndWait();
             btnSearch.ClickAndWait();           
             return(Driver.GetWebElementsByXPath("//tr[contains(@id,'ApptReconciliationList')]/td[9]").Select(e => e.Text.Equals($"{salesperson}")).Count());
-        }       
+        }
 
     }
 }

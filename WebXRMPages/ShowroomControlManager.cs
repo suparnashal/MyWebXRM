@@ -41,13 +41,14 @@ namespace WebXRMPages
             Driver.SwitchToFrameById("_framepage");
             Driver.GetWebElementByXPath("//a[.=' Refresh']").ClickAndWait();
         }
-        public void AddShowroomEvent()
+        public bool AddShowroomEvent()
         {
             SearchForCustomerByID("2712272");
             NewShowroomVisit();
             RefreshCustomerEditView();
             FilterShowroomEvent();          
-            int numOfShVisitsToday = Driver.GetWebElementsByXPath("//span[@title='Contact Date'][contains(text(),'12/11/2019')]").Count;             
+            int numOfShVisitsToday = Driver.GetWebElementsByXPath("//span[@title='Contact Date'][contains(text(),'12/11/2019')]").Count;
+            return ((numOfShVisitsToday > 0) ? true : false);                
         }
 
         private void FilterShowroomEvent()

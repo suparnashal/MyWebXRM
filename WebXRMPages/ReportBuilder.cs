@@ -37,10 +37,8 @@ namespace WebXRMPages
             GlobalHelpers gs = new GlobalHelpers();
             gs.DeleteFilesFromDirectory("RadGridExport*");
             Driver.SwitchTo().Frame("RadWindowRunReportFolder");
-            btnExportToExcel.ClickAndWait();
-           
+            btnExportToExcel.ClickAndWait();           
             return gs.DownloadFilePresent("RadGridExport*");
-
         }
 
     }

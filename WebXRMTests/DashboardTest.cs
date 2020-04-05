@@ -14,10 +14,8 @@ using WebXRMPages;
 namespace WebXRMTests
 {
     [TestFixture]
-    class DashboardTest
-    {
-        private IWebDriver driver; 
-       
+    class DashboardTest:TestBasePage
+    {   
         [OneTimeSetUp]
         public void OneTimeSetup()
         {
@@ -25,12 +23,18 @@ namespace WebXRMTests
             new LoginPage(driver).OpenUrlAndLogin();
         }
 
-        [Test]
-        [Team("xrm core")]
-        [LoopProject(Project.XRMCore)]
+        [SetUp]
+        public override void Setup()
+        {
+            base.Setup();            
+        }
+
+        [Test,Team("xrm core"),LoopProject(Project.XRMCore)]
         public void C002_VerifyCreateDashboard()
         {
             /* These are basic steps to create a Dashboard
+             * ARRANGE - decide dashbaord name
+             * ACT:
              * login as admin
              * go to dashboard
              * click on +
@@ -38,13 +42,10 @@ namespace WebXRMTests
              * Enter name of dashboard
              * click ok
              * close and click refresh
+             * ASSERT :-
              * go to DB dropdown list and see if the dashboard is present there
              * then go and delete the dashboard
-             */
-            int[] listofintegers = new int[] {2,4,5,8,10,13,15 };
-         int sum= listofintegers.Where(i => i % 2 == 0).Sum(i => i);
-            sum = sum + 0;
-            
+             */            
         }
 
         [OneTimeTearDown]

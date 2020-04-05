@@ -14,29 +14,34 @@ using WebXRMPages;
 namespace WebXRMTests
 {
     [TestFixture]
-    class InternetLeadManagerTest
+    class InternetLeadManagerTest : TestBasePage
     {
-        private IWebDriver driver;
+        
         private ILM IlmPage;
-        [SetUp]
-        public void Setup()
+
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             driver = BrowserFactory.GetBrowser();
             new LoginPage(driver).OpenUrlAndLogin();
+        }
+
+        [SetUp]
+        public override void Setup()
+        {
+            base.Setup();
             IlmPage = new ILM(driver);
         }
 
-        [Test]        
-        [Team("xrm core")]
-        [LoopProject(Project.XRMCore)]
-        public void Validate_ILM_FollowupOnly()
+        [Test,Team("xrm core"),LoopProject(Project.XRMCore)]
+        public void C003_Validate_ILM_FollowupOnly()
         {        
             IlmPage.GoToILMFollowUpOnly();
             Assert.IsTrue(IlmPage.Validate_FollowupOnlys());
             TestContext.WriteLine("ILM Followup test case done ");
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public void Cleanup()
         {
             TestContext.WriteLine("All ILM test cases done ");

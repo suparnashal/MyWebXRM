@@ -47,9 +47,7 @@ namespace WebXRMTests
 
         }
 
-        [Test]
-        [Team("xrm core")]
-        [LoopProject(Project.XRMCore)]
+        [Test,Team("xrm core"),LoopProject(Project.XRMCore)]
         public void C001_AppointmentReconValidateFilterbySP()
         {      
             //Adding comments for explanation. In prod code there will not be any comments.Codewill be readable.          
@@ -62,6 +60,7 @@ namespace WebXRMTests
             TestContext.WriteLine("Appnt recon validate filterby SP test case done ");
 
         }
+       
         [OneTimeTearDown]
         public void Cleanup()
         {
