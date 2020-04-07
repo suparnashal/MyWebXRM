@@ -15,6 +15,10 @@ namespace MobileAutomation.Screens
             
         }
 
+        /// <summary>
+        /// Check if all menu icons are displayed
+        /// </summary>
+        /// <returns></returns>
         public bool AreMenuIconsDisplayed()
         {
             return ButtonMyOpenTask.Displayed;

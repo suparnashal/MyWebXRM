@@ -20,6 +20,12 @@ namespace MobileAutomation.Screens
             //
         }
 
+        /// <summary>
+        /// Login by using given user id and password
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="dealerId"></param>
         public void EnterLoginCredentials(string username, string password, string dealerId)
         {
             TextFieldUsername.SendKeys(username);
@@ -27,6 +33,10 @@ namespace MobileAutomation.Screens
             TextFieldDealerId.SendKeys(dealerId);
         }
 
+        /// <summary>
+        /// Clicks login button and takes user to homepage
+        /// </summary>
+        /// <returns></returns>
         public HomePage InitiateLogin()
         {
             ButtonLogin.Click();

@@ -11,6 +11,12 @@ namespace MobileAutomation.Tests
     [TestFixture]
     public class LoginTests 
     {
+        [OneTimeSetUp]
+        public void OneTimeSetup()
+        {
+            Log.CreateLogFile();            
+        }
+
         [Test]
         public void XrmAdminLogin()
         {
