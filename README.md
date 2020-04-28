@@ -1,7 +1,6 @@
 # MyWebXRM
 This project has sample of automation framework and tests that i have written over past few years. 
-This project needs access to the product. Intention of this repository is to provide an idea of architecture of an automated testing
-solution.
+Intention of this repository is to provide an idea of architecture of an automated testing solution.
 
 Framework - This folder has the extesions, helpers and other folders for implementing common functionality that is used by all tests
 
